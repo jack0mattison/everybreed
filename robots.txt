@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://everybreed.co.uk/sitemap.xml
