@@ -8,7 +8,7 @@ const comparisons = require('./comparisons-data.js');
 const root = path.resolve(__dirname, '..');
 
 const template = `<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,6 @@ const template = `<!DOCTYPE html>
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');</script>
   <style>
     :root { --bg: #f9f8f5; --surface: #ffffff; --surface-2: #f5f4f0; --border: #e0ddd6; --text: #2d2d2d; --text-dim: #5c5c5c; --text-muted: #8a8a8a; --accent: #c99400; --accent-light: #d4a012; --accent-soft: #f5e6c8; --radius: 10px; --shadow-soft: 0 2px 8px rgba(0,0,0,0.06); --nav-height: 64px; }
-    html[data-theme="dark"] { --bg: #1c1c1e; --surface: #2a2a2c; --surface-2: #333336; --border: #454548; --text: #eaeaea; --text-dim: #a0a0a0; --text-muted: #78787a; --accent: #e5b020; --accent-light: #f0c040; --accent-soft: rgba(229,176,32,0.15); }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; }
     a { color: var(--accent); text-decoration: none; }
@@ -38,7 +37,6 @@ const template = `<!DOCTYPE html>
     nav ul { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; gap: 0.5rem; font-size: 0.95rem; }
     nav a { color: var(--text-dim); padding: 0.4rem 0.85rem; border-radius: var(--radius); }
     nav a:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
-    .theme-toggle { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); padding: 0.35rem 0.75rem; color: var(--text-dim); cursor: pointer; }
     .nav-mobile { display: none; }
     main { padding-top: 2rem; }
     .breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
@@ -53,7 +51,6 @@ const template = `<!DOCTYPE html>
     .article-section p { margin: 0 0 0.75rem; line-height: 1.65; color: var(--text-dim); }
     .breed-links { margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .breed-links a { padding: 0.5rem 0.9rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); }
-    .ad-slot { margin: 1.5rem 0; border-radius: var(--radius); border: 1px dashed var(--border); padding: 1.25rem; background: var(--surface-2); color: var(--text-muted); text-align: center; }
     .faq-item { margin-bottom: 1rem; }
     .faq-item h3 { font-size: 1rem; margin: 0 0 0.35rem; }
     .faq-item p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); }
@@ -73,11 +70,9 @@ const template = `<!DOCTYPE html>
           <li><a href="index.html#all-breeds">Breeds</a></li>
           <li><a href="index.html#compare">Compare</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle theme"><span class="icon">☀️</span><span class="label">Light</span></button></li>
         </ul>
         <div class="nav-mobile">
           <a href="index.html#all-breeds">🐶</a>
-          <button class="theme-toggle" type="button" id="theme-toggle-mobile"><span class="icon">☀️</span></button>
         </div>
       </nav>
     </div>
@@ -116,12 +111,10 @@ const template = `<!DOCTYPE html>
         <p>Read the full guides for <a href="{{SLUG1}}.html">{{NAME1}}</a> and <a href="{{SLUG2}}.html">{{NAME2}}</a> to match each breed to your lifestyle, then visit responsible breeders to meet the dogs in person.</p>
       </div>
       <div class="breed-links">{{BREED_LINKS}}</div>
-      <div class="ad-slot"><strong>Ad Space</strong> — Replace with Google AdSense code.</div>
       <section class="article-section" aria-labelledby="faq-heading">
         <h2 id="faq-heading">Frequently Asked Questions</h2>
         {{FAQS}}
       </section>
-      <div class="ad-slot"><strong>Ad Space</strong> — Replace with Google AdSense code.</div>
     </div>
   </main>
   <footer>
@@ -136,9 +129,6 @@ const template = `<!DOCTYPE html>
   </footer>
   <script type="application/ld+json">{{BREADCRUMB_SCHEMA}}</script>
   <script type="application/ld+json">{{FAQ_SCHEMA}}</script>
-  <script>
-  (function(){var k='eb-theme',r=document.documentElement;function a(t){var n=(t==='light'||t==='dark')?t:'dark';r.setAttribute('data-theme',n);var i=document.querySelector('#theme-toggle .icon'),l=document.querySelector('#theme-toggle .label');if(i)i.textContent=n==='light'?'☀️':'🌙';if(l)l.textContent=n==='light'?'Light':'Dark';var m=document.querySelector('#theme-toggle-mobile .icon');if(m)m.textContent=n==='light'?'☀️':'🌙';}var s;(function(){try{s=localStorage.getItem(k);}catch(e){s=null;}return (s==='light'||s==='dark')?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');})();a(s);function t(){var n=r.getAttribute('data-theme')==='light'?'dark':'light';a(n);try{localStorage.setItem(k,n);}catch(e){}}var b=document.getElementById('theme-toggle'),b2=document.getElementById('theme-toggle-mobile');if(b)b.addEventListener('click',t);if(b2)b2.addEventListener('click',t);})();
-  </script>
 </body>
 </html>`;
 

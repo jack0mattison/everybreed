@@ -42,7 +42,7 @@ for (const b of toGenerate) {
   const relatedSlugs = b.related || [];
   const relatedHtml = buildRelatedHtml(relatedSlugs, b.slug);
   html = html.replace(
-    /<div class="related-grid">[\s\S]*?<\/div>(?=\s*<\/div>\s*<div class="ad-slot">)/,
+    /<div class="related-grid">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/div>\s*<\/main>)/,
     '<div class="related-grid">\n          ' + relatedHtml.split('\n').join('\n          ') + '\n        </div>'
   );
 

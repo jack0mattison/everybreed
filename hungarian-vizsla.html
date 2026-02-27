@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -33,12 +33,6 @@
       --shadow-soft: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
       --shadow-card: 0 4px 12px rgba(0,0,0,0.06); --nav-height: 64px;
     }
-    html[data-theme="dark"] {
-      --bg: #1c1c1e; --surface: #2a2a2c; --surface-2: #333336; --surface-3: #3d3d40;
-      --border: #454548; --text: #eaeaea; --text-dim: #a0a0a0; --text-muted: #78787a;
-      --accent: #e5b020; --accent-light: #f0c040; --accent-soft: rgba(229,176,32,0.15);
-      --green: #2dbb88; --shadow-soft: 0 2px 12px rgba(0,0,0,0.2); --shadow-card: 0 4px 16px rgba(0,0,0,0.25);
-    }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     a { color: var(--accent); text-decoration: none; }
@@ -53,8 +47,6 @@
     nav ul { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; gap: 0.5rem; font-size: 0.95rem; }
     nav a { color: var(--text-dim); padding: 0.4rem 0.85rem; border-radius: var(--radius); transition: color 0.15s ease, background 0.15s ease; white-space: nowrap; }
     nav a:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
-    .theme-toggle { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); padding: 0.35rem 0.75rem; color: var(--text-dim); display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.875rem; }
-    .theme-toggle span.icon { font-size: 1rem; }
     .nav-mobile { display: none; }
     main { padding-top: 2rem; }
     .page-title { font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.2rem); margin: 0 0 0.5rem; color: var(--text); }
@@ -79,8 +71,6 @@
       text-align: center;
     }
     .cta-box a { font-weight: 600; }
-    .ad-slot { margin: 1.5rem 0; border-radius: var(--radius); border: 1px dashed var(--border); padding: 1.25rem; background: var(--surface-2); color: var(--text-muted); font-size: 0.9rem; text-align: center; }
-    .ad-slot strong { color: var(--accent); }
     .faq-list { margin: 1rem 0; }
     .faq-item { margin-bottom: 1rem; }
     .faq-item h3 { font-size: 1rem; margin: 0 0 0.35rem; color: var(--text); }
@@ -115,16 +105,9 @@
           <li><a href="index.html#all-breeds">Breeds</a></li>
           <li><a href="index.html#compare">Compare</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li>
-            <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle light and dark theme">
-              <span class="icon" aria-hidden="true">☀️</span>
-              <span class="label">Light</span>
-            </button>
-          </li>
         </ul>
         <div class="nav-mobile">
           <a href="index.html#all-breeds" aria-label="Browse breeds"><span style="font-size:1.1rem;">🐶</span></a>
-          <button class="theme-toggle" type="button" id="theme-toggle-mobile" aria-label="Toggle theme"><span class="icon" aria-hidden="true">☀️</span></button>
         </div>
       </nav>
     </div>
@@ -216,8 +199,6 @@
         <a href="index.html#compare">Compare breeds &rarr;</a>
       </div>
 
-      <div class="ad-slot"><strong>Ad Space</strong> — Replace with Google AdSense code.</div>
-
       <section class="article-section" aria-labelledby="faq-heading">
         <h2 id="faq-heading">Frequently Asked Questions</h2>
         <div class="faq-list">
@@ -258,8 +239,6 @@
                     <a href="cockapoo.html">Cockapoo</a>
         </div>
       </div>
-
-      <div class="ad-slot"><strong>Ad Space</strong> — Replace with Google AdSense code.</div>
     </div>
   </main>
 
@@ -318,34 +297,6 @@
       { "@type": "Question", "name": "How much does a Hungarian Vizsla puppy cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "From a responsible, health-tested breeder, expect to pay roughly £1,000–£2,500 for a Kennel Club registered Hungarian Vizsla puppy." } }
     ]
   }
-  </script>
-  <script>
-    (function() {
-      var STORAGE_KEY = 'eb-theme';
-      var root = document.documentElement;
-      function applyTheme(theme) {
-        var t = (theme === 'light' || theme === 'dark') ? theme : 'light';
-        root.setAttribute('data-theme', t);
-        var icon = document.querySelector('#theme-toggle .icon');
-        var label = document.querySelector('#theme-toggle .label');
-        if (icon) icon.textContent = t === 'light' ? '☀️' : '🌙';
-        if (label) label.textContent = t === 'light' ? 'Light' : 'Dark';
-        var iconM = document.querySelector('#theme-toggle-mobile .icon');
-        if (iconM) iconM.textContent = t === 'light' ? '☀️' : '🌙';
-      }
-      var stored = (function() { try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; } })();
-      var initial = (stored === 'light' || stored === 'dark') ? stored : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      applyTheme(initial);
-      function toggleTheme() {
-        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        applyTheme(next);
-        try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
-      }
-      var btn = document.getElementById('theme-toggle');
-      var btnM = document.getElementById('theme-toggle-mobile');
-      if (btn) btn.addEventListener('click', toggleTheme);
-      if (btnM) btnM.addEventListener('click', toggleTheme);
-    })();
   </script>
 </body>
 </html>

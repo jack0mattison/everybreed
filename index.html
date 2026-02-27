@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google Analytics (placeholder ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -47,20 +47,6 @@
       --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.06);
       --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
       --nav-height: 64px;
-    }
-
-    html[data-theme="dark"] {
-      --bg: #1c1c1e;
-      --surface: #2a2a2c;
-      --surface-2: #333336;
-      --surface-3: #3c3c40;
-      --border: #454548;
-      --text: #eaeaea;
-      --text-dim: #a0a0a0;
-      --text-muted: #78787a;
-      --accent: #e5b020;
-      --accent-light: #f0c040;
-      --accent-soft: rgba(229, 176, 32, 0.15);
     }
 
     * {
@@ -165,23 +151,6 @@
       text-decoration: none;
     }
 
-    .theme-toggle {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      padding: 0.35rem 0.75rem;
-      color: var(--text-dim);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      font-size: 0.85rem;
-    }
-
-    .theme-toggle span.icon {
-      font-size: 1rem;
-    }
-
     .nav-mobile {
       display: none;
     }
@@ -282,7 +251,6 @@
     }
 
     .search-meta code {
-      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.78rem;
       padding: 0.08rem 0.35rem;
       border-radius: 6px;
@@ -339,7 +307,6 @@
     }
 
     .metric-value {
-      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.95rem;
       color: var(--text);
       display: flex;
@@ -491,7 +458,6 @@
     }
 
     .popular-chip span.rank {
-      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.78rem;
       color: var(--accent);
     }
@@ -509,21 +475,6 @@
     }
 
     .pill-link strong {
-      color: var(--accent);
-    }
-
-    .ad-slot {
-      margin: 1.5rem 0;
-      border-radius: var(--radius);
-      border: 1px dashed var(--border);
-      padding: 1rem 1.1rem;
-      background: var(--surface-2);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .ad-slot strong {
       color: var(--accent);
     }
 
@@ -623,20 +574,11 @@
           <li><a href="#all-breeds">Breeds</a></li>
           <li><a href="#compare">Compare</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li>
-            <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle light and dark theme">
-              <span class="icon" aria-hidden="true">☀️</span>
-              <span class="label">Light</span>
-            </button>
-          </li>
         </ul>
         <div class="nav-mobile">
           <a href="#all-breeds" aria-label="Browse breeds">
             <span style="font-size:1.1rem;">🐶</span>
           </a>
-          <button class="theme-toggle" type="button" id="theme-toggle-mobile" aria-label="Toggle light and dark theme (mobile)">
-            <span class="icon" aria-hidden="true">☀️</span>
-          </button>
         </div>
       </nav>
     </div>
@@ -1211,9 +1153,6 @@
         </div>
       </section>
 
-      <div class="ad-slot">
-        <strong>Ad Space</strong> &mdash; Replace with Google AdSense code.
-      </div>
     </div>
   </main>
 
@@ -1273,69 +1212,6 @@
 
   <script>
     (function() {
-      var STORAGE_KEY = 'eb-theme';
-      var root = document.documentElement;
-
-      function applyTheme(theme) {
-        var normalised = (theme === 'light' || theme === 'dark') ? theme : 'light';
-        if (normalised === 'light') {
-          root.setAttribute('data-theme', 'light');
-        } else {
-          root.setAttribute('data-theme', 'dark');
-        }
-        syncToggleLabels(normalised);
-      }
-
-      function syncToggleLabels(theme) {
-        var isLight = theme === 'light';
-        var toggle = document.getElementById('theme-toggle');
-        var toggleMobile = document.getElementById('theme-toggle-mobile');
-        if (toggle) {
-          var icon = toggle.querySelector('.icon');
-          var label = toggle.querySelector('.label');
-          if (icon) icon.textContent = isLight ? '☀️' : '🌙';
-          if (label) label.textContent = isLight ? 'Light' : 'Dark';
-        }
-        if (toggleMobile) {
-          var iconM = toggleMobile.querySelector('.icon');
-          if (iconM) iconM.textContent = isLight ? '☀️' : '🌙';
-        }
-      }
-
-      function getInitialTheme() {
-        try {
-          var stored = window.localStorage.getItem(STORAGE_KEY);
-          if (stored === 'light' || stored === 'dark') {
-            return stored;
-          }
-        } catch (e) {}
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-        return 'light';
-      }
-
-      var initial = getInitialTheme();
-      applyTheme(initial);
-
-      function toggleTheme() {
-        var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        var next = current === 'light' ? 'dark' : 'light';
-        applyTheme(next);
-        try {
-          window.localStorage.setItem(STORAGE_KEY, next);
-        } catch (e) {}
-      }
-
-      var desktopToggle = document.getElementById('theme-toggle');
-      var mobileToggle = document.getElementById('theme-toggle-mobile');
-      if (desktopToggle) {
-        desktopToggle.addEventListener('click', toggleTheme);
-      }
-      if (mobileToggle) {
-        mobileToggle.addEventListener('click', toggleTheme);
-      }
-
       var searchInput = document.getElementById('breed-search');
       var grid = document.getElementById('breed-grid');
       var countEl = document.getElementById('breed-count');
