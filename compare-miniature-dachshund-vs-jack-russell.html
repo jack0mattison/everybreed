@@ -45,11 +45,21 @@
     .faq-item { margin-bottom: 1rem; }
     .faq-item h3 { font-size: 1rem; margin: 0 0 0.35rem; }
     .faq-item p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); }
-    footer { border-top: 1px solid var(--border); padding: 2rem 1.25rem 2.5rem; background: var(--surface); color: var(--text-dim); font-size: 0.9rem; margin-top: 2.5rem; }
-    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; }
-    .footer-links a { color: var(--text-dim); }
-    .footer-links a:hover { color: var(--accent); text-decoration: none; }
-    @media (max-width: 640px) { nav ul { display: none; } .nav-mobile { display: inline-flex; } .compare-table { font-size: 0.85rem; } .compare-table th, .compare-table td { padding: 0.5rem; } }
+    footer { border-top: 1px solid var(--border); padding: 3rem 1.25rem 2rem; background: var(--surface); color: var(--text-dim); font-size: 0.88rem; margin-top: 3rem; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+    .footer-brand p { margin: 0.5rem 0 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); max-width: 280px; }
+    .footer-brand .logo { margin-bottom: 0.25rem; }
+    .footer-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 0.65rem; font-weight: 600; }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; }
+    .footer-col li { margin-bottom: 0.4rem; }
+    .footer-col a { color: var(--text-dim); font-size: 0.88rem; }
+    .footer-col a:hover { color: var(--accent); text-decoration: none; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; }
+    .footer-bottom p { margin: 0; font-size: 0.82rem; color: var(--text-muted); }
+    .footer-bottom .brand { color: var(--accent); font-weight: 600; }
+    @media (max-width: 880px) { .footer-cols { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { nav ul { display: none; } .nav-mobile { display: inline-flex; } .compare-table { font-size: 0.85rem; } .compare-table th, .compare-table td { padding: 0.5rem; } .footer-cols { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -127,12 +137,45 @@
   </main>
   <footer>
     <div class="footer-inner">
-      <div class="footer-links">
-        <a href="index.html#all-breeds">Browse All Breeds</a>
-        <a href="index.html#compare">Compare Breeds</a>
-        <a href="blog.html">Blog</a>
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><span>🐾</span><span>Every</span><span>Breed</span></a>
+          <p>The UK&apos;s complete dog breed guide. Honest, practical advice for real dog owners.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#all-breeds">All Breeds</a></li>
+            <li><a href="index.html#compare">Compare Breeds</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="best-dogs-for-families.html">Best for Families</a></li>
+            <li><a href="best-dogs-for-first-time-owners.html">First-Time Owners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular Breeds</h4>
+          <ul>
+            <li><a href="labrador-retriever.html">Labrador Retriever</a></li>
+            <li><a href="cockapoo.html">Cockapoo</a></li>
+            <li><a href="french-bulldog.html">French Bulldog</a></li>
+            <li><a href="cocker-spaniel.html">Cocker Spaniel</a></li>
+            <li><a href="golden-retriever.html">Golden Retriever</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="how-much-does-a-puppy-cost-uk.html">Puppy Cost Guide</a></li>
+            <li><a href="how-to-choose-the-right-dog-breed.html">Choosing a Breed</a></li>
+            <li><a href="dog-insurance-uk-guide.html">Insurance Guide</a></li>
+            <li><a href="first-time-dog-owner-guide-uk.html">New Owner Checklist</a></li>
+          </ul>
+        </div>
       </div>
-      <p>© 2026 <span style="color:var(--accent)">EveryBreed</span> — The UK&apos;s complete dog breed guide.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span class="brand">EveryBreed</span>. All rights reserved.</p>
+        <p>Built for UK dog owners. Breed data sourced from the Kennel Club &amp; breed societies.</p>
+      </div>
     </div>
   </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://everybreed.co.uk/"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://everybreed.co.uk/#compare"},{"@type":"ListItem","position":3,"name":"Miniature Dachshund vs Jack Russell Terrier","item":"https://everybreed.co.uk/compare-miniature-dachshund-vs-jack-russell.html"}]}</script>

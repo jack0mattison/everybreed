@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog — Dog Breed Guides &amp; UK Advice | EveryBreed</title>
-  <meta name="description" content="Guides on puppy costs, choosing the right breed and the most popular dogs in the UK. EveryBreed blog.">
+  <meta name="description" content="Guides on puppy costs, choosing the right breed, exercise tips and the most popular dogs in the UK. EveryBreed blog.">
   <link rel="canonical" href="https://everybreed.co.uk/blog.html">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
@@ -14,7 +14,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');</script>
   <style>
-    :root { --bg: #f9f8f5; --surface: #ffffff; --surface-2: #f5f4f0; --border: #e0ddd6; --text: #2d2d2d; --text-dim: #5c5c5c; --text-muted: #8a8a8a; --accent: #c99400; --accent-light: #d4a012; --accent-soft: #f5e6c8; --radius: 10px; --shadow-soft: 0 2px 8px rgba(0,0,0,0.06); --nav-height: 64px; }
+    :root { --bg: #f9f8f5; --surface: #ffffff; --surface-2: #f5f4f0; --border: #e0ddd6; --text: #2d2d2d; --text-dim: #5c5c5c; --text-muted: #8a8a8a; --accent: #c99400; --accent-light: #d4a012; --accent-soft: #f5e6c8; --radius: 10px; --shadow-soft: 0 2px 8px rgba(0,0,0,0.06); --shadow-card: 0 4px 12px rgba(0,0,0,0.08); --nav-height: 64px; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; }
     a { color: var(--accent); text-decoration: none; }
@@ -31,18 +31,35 @@
     .nav-mobile { display: none; }
     main { padding-top: 1.75rem; }
     .breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
-    .page-title { font-size: clamp(1.75rem, 2.2vw + 0.5rem, 2.2rem); margin: 0 0 1.5rem; }
-    .post-list { display: grid; gap: 1.25rem; }
-    .post-card { display: block; padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-soft); transition: border-color 0.15s ease; }
-    .post-card:hover { border-color: var(--accent); background: var(--accent-soft); text-decoration: none; }
-    .post-card h2 { margin: 0 0 0.4rem; font-size: 1.15rem; color: var(--text); }
-    .post-card .meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-    .post-card p { margin: 0; font-size: 0.95rem; line-height: 1.55; color: var(--text-dim); }
-    footer { border-top: 1px solid var(--border); padding: 1.7rem 1.25rem 2rem; background: var(--surface-2); color: var(--text-dim); font-size: 0.86rem; margin-top: 2rem; }
-    .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; }
-    .footer-links a { color: var(--text-dim); }
-    .footer-links a:hover { color: var(--accent); text-decoration: none; }
-    @media (max-width: 640px) { nav ul { display: none; } .nav-mobile { display: inline-flex; } }
+    .page-title { font-size: clamp(1.75rem, 2.2vw + 0.5rem, 2.2rem); margin: 0 0 0.5rem; }
+    .page-subtitle { color: var(--text-dim); margin: 0 0 2rem; font-size: 1rem; line-height: 1.55; }
+    .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .post-card { display: flex; flex-direction: column; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-soft); overflow: hidden; transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease; }
+    .post-card:hover { border-color: var(--accent); box-shadow: var(--shadow-card); transform: translateY(-2px); text-decoration: none; }
+    .post-card-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--surface-2); }
+    .post-card-body { padding: 1rem 1.15rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .post-card-body .meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .post-card-body h2 { margin: 0 0 0.5rem; font-size: 1.05rem; line-height: 1.35; color: var(--text); }
+    .post-card-body p { margin: 0; font-size: 0.9rem; line-height: 1.55; color: var(--text-dim); flex: 1; }
+    .post-card-body .read-more { margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+    .post-card:hover .read-more { color: var(--accent-light); }
+
+    footer { border-top: 1px solid var(--border); padding: 3rem 1.25rem 2rem; background: var(--surface); color: var(--text-dim); font-size: 0.88rem; margin-top: 3rem; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+    .footer-brand p { margin: 0.5rem 0 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); max-width: 280px; }
+    .footer-brand .logo { margin-bottom: 0.25rem; }
+    .footer-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 0.65rem; font-weight: 600; }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; }
+    .footer-col li { margin-bottom: 0.4rem; }
+    .footer-col a { color: var(--text-dim); font-size: 0.88rem; }
+    .footer-col a:hover { color: var(--accent); text-decoration: none; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; }
+    .footer-bottom p { margin: 0; font-size: 0.82rem; color: var(--text-muted); }
+    .footer-bottom .brand { color: var(--accent); font-weight: 600; }
+
+    @media (max-width: 880px) { .post-grid { grid-template-columns: repeat(2, 1fr); } .footer-cols { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { nav ul { display: none; } .nav-mobile { display: inline-flex; } .post-grid { grid-template-columns: 1fr; } .footer-cols { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -65,34 +82,106 @@
     <div class="shell">
       <nav class="breadcrumb"><a href="index.html">Home</a> &rarr; <span>Blog</span></nav>
       <h1 class="page-title">Blog</h1>
-      <p style="color:var(--text-dim); margin-bottom:1.5rem;">Guides on UK puppy costs, choosing the right breed and the most popular dogs in Britain.</p>
-      <div class="post-list">
+      <p class="page-subtitle">Practical guides for UK dog owners — from puppy costs and breed advice to exercise tips and first-time owner essentials.</p>
+      <div class="post-grid">
         <a class="post-card" href="how-much-does-a-puppy-cost-uk.html">
-          <p class="meta">2026</p>
-          <h2>How Much Does a Puppy Cost in the UK? (2026 Prices)</h2>
-          <p>Average prices by breed, ongoing costs, insurance, food and vet bills so you can budget before you buy.</p>
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=560&h=350&fit=crop&auto=format" alt="Golden puppy sitting on grass" width="560" height="350" loading="lazy">
+          <div class="post-card-body">
+            <p class="meta">Costs &amp; Budgeting</p>
+            <h2>How Much Does a Puppy Cost in the UK? (2026 Prices)</h2>
+            <p>Average prices by breed, ongoing costs, insurance, food and vet bills so you can budget before you buy.</p>
+            <span class="read-more">Read more &rarr;</span>
+          </div>
         </a>
         <a class="post-card" href="how-to-choose-the-right-dog-breed.html">
-          <p class="meta">2026</p>
-          <h2>How to Choose the Right Dog Breed for Your Lifestyle</h2>
-          <p>A practical framework: lifestyle assessment, key factors and a decision guide to find your match.</p>
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=560&h=350&fit=crop&auto=format" alt="Two dogs running together in a park" width="560" height="350" loading="lazy">
+          <div class="post-card-body">
+            <p class="meta">Choosing a Breed</p>
+            <h2>How to Choose the Right Dog Breed for Your Lifestyle</h2>
+            <p>A practical framework: lifestyle assessment, key factors and a decision guide to find your perfect match.</p>
+            <span class="read-more">Read more &rarr;</span>
+          </div>
         </a>
         <a class="post-card" href="most-popular-dog-breeds-uk.html">
-          <p class="meta">2026</p>
-          <h2>The Most Popular Dog Breeds in the UK (2026)</h2>
-          <p>Top 20 breeds with Kennel Club and search trends—plus links to full breed guides.</p>
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=560&h=350&fit=crop&auto=format" alt="Labrador Retriever portrait outdoors" width="560" height="350" loading="lazy">
+          <div class="post-card-body">
+            <p class="meta">UK Trends</p>
+            <h2>The Most Popular Dog Breeds in the UK (2026)</h2>
+            <p>Top 20 breeds with Kennel Club registrations and search trends, plus links to full breed guides.</p>
+            <span class="read-more">Read more &rarr;</span>
+          </div>
+        </a>
+        <a class="post-card" href="best-dog-walking-tips-uk.html">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=560&h=350&fit=crop&auto=format" alt="Person walking a dog on a countryside path" width="560" height="350" loading="lazy">
+          <div class="post-card-body">
+            <p class="meta">Exercise &amp; Walks</p>
+            <h2>Dog Walking Tips: How Much Exercise Does Your Dog Really Need?</h2>
+            <p>Breed-by-breed exercise guide with UK-specific advice on walks, off-lead time and seasonal safety.</p>
+            <span class="read-more">Read more &rarr;</span>
+          </div>
+        </a>
+        <a class="post-card" href="first-time-dog-owner-guide-uk.html">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=560&h=350&fit=crop&auto=format" alt="Person holding a small puppy" width="560" height="350" loading="lazy">
+          <div class="post-card-body">
+            <p class="meta">New Owners</p>
+            <h2>First-Time Dog Owner? The Complete UK Checklist (2026)</h2>
+            <p>Everything you need before bringing a dog home — from puppy-proofing and vet registration to insurance and training.</p>
+            <span class="read-more">Read more &rarr;</span>
+          </div>
+        </a>
+        <a class="post-card" href="dog-insurance-uk-guide.html">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=560&h=350&fit=crop&auto=format" alt="Happy dog being examined by a vet" width="560" height="350" loading="lazy">
+          <div class="post-card-body">
+            <p class="meta">Insurance &amp; Health</p>
+            <h2>Dog Insurance in the UK: What You Need to Know (2026)</h2>
+            <p>Lifetime vs accident-only, what&apos;s covered, average premiums by breed and how to pick the right policy.</p>
+            <span class="read-more">Read more &rarr;</span>
+          </div>
         </a>
       </div>
     </div>
   </main>
   <footer>
     <div class="footer-inner">
-      <div class="footer-links">
-        <a href="index.html#all-breeds">Browse All Breeds</a>
-        <a href="index.html#compare">Compare Breeds</a>
-        <a href="blog.html">Blog</a>
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><span>🐾</span><span>Every</span><span>Breed</span></a>
+          <p>The UK&apos;s complete dog breed guide. Honest, practical advice for real dog owners — no fluff, just the facts.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#all-breeds">All Breeds</a></li>
+            <li><a href="index.html#compare">Compare Breeds</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="best-dogs-for-families.html">Best for Families</a></li>
+            <li><a href="best-dogs-for-first-time-owners.html">First-Time Owners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular Breeds</h4>
+          <ul>
+            <li><a href="labrador-retriever.html">Labrador Retriever</a></li>
+            <li><a href="cockapoo.html">Cockapoo</a></li>
+            <li><a href="french-bulldog.html">French Bulldog</a></li>
+            <li><a href="cocker-spaniel.html">Cocker Spaniel</a></li>
+            <li><a href="golden-retriever.html">Golden Retriever</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="how-much-does-a-puppy-cost-uk.html">Puppy Cost Guide</a></li>
+            <li><a href="how-to-choose-the-right-dog-breed.html">Choosing a Breed</a></li>
+            <li><a href="dog-insurance-uk-guide.html">Insurance Guide</a></li>
+            <li><a href="first-time-dog-owner-guide-uk.html">New Owner Checklist</a></li>
+          </ul>
+        </div>
       </div>
-      <p>© 2026 <span style="color:var(--accent)">EveryBreed</span> — The UK&apos;s complete dog breed guide.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span class="brand">EveryBreed</span>. All rights reserved.</p>
+        <p>Built for UK dog owners. Breed data sourced from the Kennel Club &amp; breed societies.</p>
+      </div>
     </div>
   </footer>
   <script type="application/ld+json">
