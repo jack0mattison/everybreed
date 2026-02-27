@@ -31,15 +31,15 @@
       --accent: #c99400; --accent-light: #d4a012; --accent-soft: #f5e6c8;
       --green: #0d9668; --red: #c53030; --radius: 10px;
       --shadow-soft: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-card: 0 4px 12px rgba(0,0,0,0.06); --nav-height: 64px;
+      --shadow-card: 0 4px 12px rgba(0,0,0,0.06); --nav-height: 72px;
     }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-light); text-decoration: underline; }
-    .shell { max-width: 1120px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+    .shell { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem 4rem; }
     header.site-header { position: sticky; top: 0; z-index: 40; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-soft); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: var(--nav-height); max-width: 1120px; margin: 0 auto; padding: 0 1.25rem; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: var(--nav-height); max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
     .logo { font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 0.45rem; }
     .logo-mark { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 1rem; box-shadow: 0 2px 6px rgba(201,148,0,0.35); }
     .logo span:nth-child(2) { color: var(--text); }
@@ -48,25 +48,25 @@
     nav a { color: var(--text-dim); padding: 0.4rem 0.85rem; border-radius: var(--radius); transition: color 0.15s ease, background 0.15s ease; white-space: nowrap; }
     nav a:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
     .nav-mobile { display: none; }
-    main { padding-top: 2rem; }
-    .page-title { font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.2rem); margin: 0 0 0.5rem; color: var(--text); }
-    .breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    main { padding-top: 2.5rem; }
+    .page-title { font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.2rem); margin: 0 0 0.75rem; color: var(--text); }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
     .breadcrumb a { color: var(--text-dim); }
     .quick-stats-bar {
       display: flex; flex-wrap: wrap; gap: 0.6rem 1rem;
-      padding: 1rem 1.25rem; margin: 1rem 0 1.5rem;
+      padding: 1.15rem 1.5rem; margin: 1.25rem 0 2rem;
       background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);
       box-shadow: var(--shadow-soft); font-size: 0.9rem;
     }
     .quick-stat { display: inline-flex; align-items: center; gap: 0.35rem; }
     .quick-stat .label { color: var(--text-muted); }
     .quick-stat .value { color: var(--text); font-weight: 500; }
-    .article-section { margin-bottom: 2rem; }
-    .article-section h2 { font-size: 1.25rem; margin: 0 0 0.6rem; color: var(--text); }
-    .article-section p { margin: 0 0 0.75rem; line-height: 1.65; color: var(--text-dim); }
-    .article-section ul { margin: 0.5rem 0 1rem; padding-left: 1.4rem; color: var(--text-dim); line-height: 1.6; }
+    .article-section { margin-bottom: 2.5rem; }
+    .article-section h2 { font-size: 1.25rem; margin: 0 0 0.85rem; color: var(--text); }
+    .article-section p { margin: 0 0 1rem; line-height: 1.65; color: var(--text-dim); }
+    .article-section ul { margin: 0.75rem 0 1.25rem; padding-left: 1.4rem; color: var(--text-dim); line-height: 1.6; }
     .cta-box {
-      padding: 1.25rem; margin: 1.5rem 0;
+      padding: 1.5rem; margin: 2rem 0;
       background: var(--accent-soft); border-radius: var(--radius); border: 1px solid var(--accent);
       text-align: center;
     }
@@ -83,17 +83,17 @@
       transition: border-color 0.15s ease, background 0.15s ease;
     }
     .related-grid a:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); text-decoration: none; }
-    footer { border-top: 1px solid var(--border); padding: 3rem 1.25rem 2rem; background: var(--surface); color: var(--text-dim); font-size: 0.88rem; margin-top: 3rem; }
+    footer { border-top: 1px solid var(--border); padding: 3.5rem 1.5rem 2.5rem; background: var(--surface); color: var(--text-dim); font-size: 0.88rem; margin-top: 3.5rem; }
     .footer-inner { max-width: 1120px; margin: 0 auto; }
-    .footer-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+    .footer-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
     .footer-brand p { margin: 0.5rem 0 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); max-width: 280px; }
     .footer-brand .logo { margin-bottom: 0.25rem; }
-    .footer-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 0.65rem; font-weight: 600; }
+    .footer-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 0.85rem; font-weight: 600; }
     .footer-col ul { list-style: none; margin: 0; padding: 0; }
-    .footer-col li { margin-bottom: 0.4rem; }
+    .footer-col li { margin-bottom: 0.55rem; }
     .footer-col a { color: var(--text-dim); font-size: 0.88rem; }
     .footer-col a:hover { color: var(--accent); text-decoration: none; }
-    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
     .footer-bottom p { margin: 0; font-size: 0.82rem; color: var(--text-muted); }
     .footer-bottom .brand { color: var(--accent); font-weight: 600; }
     @media (max-width: 880px) { .footer-cols { grid-template-columns: 1fr 1fr; } }
