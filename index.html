@@ -367,13 +367,13 @@
       position: relative;
       border-radius: calc(var(--radius) * 0.85);
       border: 1px solid var(--border);
-      padding: 0.95rem 1rem 1rem;
+      padding: 0;
+      overflow: hidden;
       background: var(--surface);
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
       cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
       box-shadow: var(--shadow-soft);
     }
 
@@ -381,7 +381,21 @@
       transform: translateY(-2px);
       border-color: var(--accent);
       box-shadow: var(--shadow-card);
-      background: var(--accent-soft);
+    }
+
+    .breed-card-img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      background: var(--surface-2);
+    }
+
+    .breed-card-body {
+      padding: 0.85rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
     }
 
     .breed-name-row {
@@ -636,333 +650,423 @@
           <div class="breed-grid" id="breed-grid">
             <!-- Each breed card is fully linked and filterable via data attributes -->
             <a class="breed-card" href="labrador-retriever.html" data-name="labrador retriever lab" data-group="gundog" data-tags="medium large family friendly outgoing high exercise">
-              <div class="breed-name-row">
-                <div class="breed-name">Labrador Retriever</div>
-                <span class="breed-group">Gundog</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 11–13y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=267&fit=crop&auto=format" alt="Labrador Retriever" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Labrador Retriever</div>
+                  <span class="breed-group">Gundog</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 11–13y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="cockapoo.html" data-name="cockapoo" data-group="utility" data-tags="small medium family friendly low shedding companion">
-              <div class="breed-name-row">
-                <div class="breed-name">Cockapoo</div>
-                <span class="breed-group">Utility (Crossbreed)</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small–Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=400&h=267&fit=crop&auto=format" alt="Cockapoo" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Cockapoo</div>
+                  <span class="breed-group">Utility (Crossbreed)</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small–Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="french-bulldog.html" data-name="french bulldog" data-group="utility" data-tags="small companion low exercise flat friendly">
-              <div class="breed-name-row">
-                <div class="breed-name">French Bulldog</div>
-                <span class="breed-group">Utility</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 10–12y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1583337130417-13219ce97624?w=400&h=267&fit=crop&auto=format" alt="French Bulldog" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">French Bulldog</div>
+                  <span class="breed-group">Utility</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 10–12y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="cocker-spaniel.html" data-name="cocker spaniel" data-group="gundog" data-tags="medium gundog family friendly affectionate">
-              <div class="breed-name-row">
-                <div class="breed-name">Cocker Spaniel</div>
-                <span class="breed-group">Gundog</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=267&fit=crop&auto=format" alt="Cocker Spaniel" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Cocker Spaniel</div>
+                  <span class="breed-group">Gundog</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="golden-retriever.html" data-name="golden retriever" data-group="gundog" data-tags="large family friendly gentle high exercise">
-              <div class="breed-name-row">
-                <div class="breed-name">Golden Retriever</div>
-                <span class="breed-group">Gundog</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 10–12y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=400&h=267&fit=crop&auto=format" alt="Golden Retriever" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Golden Retriever</div>
+                  <span class="breed-group">Gundog</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 10–12y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="german-shepherd.html" data-name="german shepherd gsd" data-group="pastoral" data-tags="large guarding intelligent working active">
-              <div class="breed-name-row">
-                <div class="breed-name">German Shepherd</div>
-                <span class="breed-group">Pastoral</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 9–13y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=400&h=267&fit=crop&auto=format" alt="German Shepherd" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">German Shepherd</div>
+                  <span class="breed-group">Pastoral</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 9–13y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="miniature-dachshund.html" data-name="miniature dachshund sausage dog" data-group="hound" data-tags="small hound apartment friendly">
-              <div class="breed-name-row">
-                <div class="breed-name">Miniature Dachshund (Smooth-Haired)</div>
-                <span class="breed-group">Hound</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1612195583950-b8fd34c87093?w=400&h=267&fit=crop&auto=format" alt="Miniature Dachshund" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Miniature Dachshund (Smooth-Haired)</div>
+                  <span class="breed-group">Hound</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="english-springer-spaniel.html" data-name="english springer spaniel" data-group="gundog" data-tags="medium gundog active working">
-              <div class="breed-name-row">
-                <div class="breed-name">English Springer Spaniel</div>
-                <span class="breed-group">Gundog</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=400&h=267&fit=crop&auto=format" alt="English Springer Spaniel" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">English Springer Spaniel</div>
+                  <span class="breed-group">Gundog</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="staffordshire-bull-terrier.html" data-name="staffordshire bull terrier staffy" data-group="terrier" data-tags="medium terrier muscular loyal">
-              <div class="breed-name-row">
-                <div class="breed-name">Staffordshire Bull Terrier</div>
-                <span class="breed-group">Terrier</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=400&h=267&fit=crop&auto=format" alt="Staffordshire Bull Terrier" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Staffordshire Bull Terrier</div>
+                  <span class="breed-group">Terrier</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="cavalier-king-charles-spaniel.html" data-name="cavalier king charles spaniel" data-group="toy" data-tags="small toy companion gentle">
-              <div class="breed-name-row">
-                <div class="breed-name">Cavalier King Charles Spaniel</div>
-                <span class="breed-group">Toy</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=267&fit=crop&auto=format" alt="Cavalier King Charles Spaniel" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Cavalier King Charles Spaniel</div>
+                  <span class="breed-group">Toy</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="border-collie.html" data-name="border collie" data-group="pastoral" data-tags="medium pastoral working very active intelligent">
-              <div class="breed-name-row">
-                <div class="breed-name">Border Collie</div>
-                <span class="breed-group">Pastoral</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?w=400&h=267&fit=crop&auto=format" alt="Border Collie" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Border Collie</div>
+                  <span class="breed-group">Pastoral</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="miniature-schnauzer.html" data-name="miniature schnauzer" data-group="utility" data-tags="small utility low shedding watchdog">
-              <div class="breed-name-row">
-                <div class="breed-name">Miniature Schnauzer</div>
-                <span class="breed-group">Utility</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=400&h=267&fit=crop&auto=format" alt="Miniature Schnauzer" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Miniature Schnauzer</div>
+                  <span class="breed-group">Utility</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="pug.html" data-name="pug" data-group="toy" data-tags="small toy companion flat friendly">
-              <div class="breed-name-row">
-                <div class="breed-name">Pug</div>
-                <span class="breed-group">Toy</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&h=267&fit=crop&auto=format" alt="Pug" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Pug</div>
+                  <span class="breed-group">Toy</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="whippet.html" data-name="whippet" data-group="hound" data-tags="medium hound gentle sprinter">
-              <div class="breed-name-row">
-                <div class="breed-name">Whippet</div>
-                <span class="breed-group">Hound</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate–High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=400&h=267&fit=crop&auto=format" alt="Whippet" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Whippet</div>
+                  <span class="breed-group">Hound</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate–High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="hungarian-vizsla.html" data-name="hungarian vizsla" data-group="gundog" data-tags="medium large active working gundog">
-              <div class="breed-name-row">
-                <div class="breed-name">Hungarian Vizsla</div>
-                <span class="breed-group">Gundog</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&h=267&fit=crop&auto=format" alt="Hungarian Vizsla" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Hungarian Vizsla</div>
+                  <span class="breed-group">Gundog</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="border-terrier.html" data-name="border terrier" data-group="terrier" data-tags="small terrier hardy">
-              <div class="breed-name-row">
-                <div class="breed-name">Border Terrier</div>
-                <span class="breed-group">Terrier</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate–High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=400&h=267&fit=crop&auto=format" alt="Border Terrier" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Border Terrier</div>
+                  <span class="breed-group">Terrier</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate–High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="shih-tzu.html" data-name="shih tzu" data-group="toy" data-tags="small toy companion long coat">
-              <div class="breed-name-row">
-                <div class="breed-name">Shih Tzu</div>
-                <span class="breed-group">Toy</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 10–16y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1615751072497-5f5169febe17?w=400&h=267&fit=crop&auto=format" alt="Shih Tzu" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Shih Tzu</div>
+                  <span class="breed-group">Toy</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 10–16y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="boxer.html" data-name="boxer" data-group="working" data-tags="large working energetic clownish">
-              <div class="breed-name-row">
-                <div class="breed-name">Boxer</div>
-                <span class="breed-group">Working</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 10–12y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1543071220-6ee5bf71a54e?w=400&h=267&fit=crop&auto=format" alt="Boxer" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Boxer</div>
+                  <span class="breed-group">Working</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 10–12y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="rottweiler.html" data-name="rottweiler" data-group="working" data-tags="large guardian confident strong">
-              <div class="breed-name-row">
-                <div class="breed-name">Rottweiler</div>
-                <span class="breed-group">Working</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 9–10y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1567752881298-894bb81f9379?w=400&h=267&fit=crop&auto=format" alt="Rottweiler" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Rottweiler</div>
+                  <span class="breed-group">Working</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 9–10y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="dalmatian.html" data-name="dalmatian" data-group="utility" data-tags="medium large spotted active">
-              <div class="breed-name-row">
-                <div class="breed-name">Dalmatian</div>
-                <span class="breed-group">Utility</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 11–13y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1541599468348-e603c68a2a4b?w=400&h=267&fit=crop&auto=format" alt="Dalmatian" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Dalmatian</div>
+                  <span class="breed-group">Utility</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 11–13y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="beagle.html" data-name="beagle" data-group="hound" data-tags="small medium scent hound vocal">
-              <div class="breed-name-row">
-                <div class="breed-name">Beagle</div>
-                <span class="breed-group">Hound</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small–Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?w=400&h=267&fit=crop&auto=format" alt="Beagle" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Beagle</div>
+                  <span class="breed-group">Hound</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small–Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="jack-russell-terrier.html" data-name="jack russell terrier" data-group="terrier" data-tags="small terrier lively energetic">
-              <div class="breed-name-row">
-                <div class="breed-name">Jack Russell Terrier</div>
-                <span class="breed-group">Terrier</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=400&h=267&fit=crop&auto=format" alt="Jack Russell Terrier" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Jack Russell Terrier</div>
+                  <span class="breed-group">Terrier</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="yorkshire-terrier.html" data-name="yorkshire terrier yorkie" data-group="toy" data-tags="small toy companion long coat">
-              <div class="breed-name-row">
-                <div class="breed-name">Yorkshire Terrier</div>
-                <span class="breed-group">Toy</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1583337426008-2fef51aa841a?w=400&h=267&fit=crop&auto=format" alt="Yorkshire Terrier" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Yorkshire Terrier</div>
+                  <span class="breed-group">Toy</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="bernese-mountain-dog.html" data-name="bernese mountain dog" data-group="working" data-tags="giant mountain gentle">
-              <div class="breed-name-row">
-                <div class="breed-name">Bernese Mountain Dog</div>
-                <span class="breed-group">Working</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Giant</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 7–10y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=400&h=267&fit=crop&auto=format" alt="Bernese Mountain Dog" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Bernese Mountain Dog</div>
+                  <span class="breed-group">Working</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Giant</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 7–10y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="labradoodle.html" data-name="labradoodle" data-group="utility" data-tags="medium large crossbreed low shedding">
-              <div class="breed-name-row">
-                <div class="breed-name">Labradoodle</div>
-                <span class="breed-group">Utility (Crossbreed)</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=400&h=267&fit=crop&auto=format" alt="Labradoodle" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Labradoodle</div>
+                  <span class="breed-group">Utility (Crossbreed)</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–14y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="goldendoodle.html" data-name="goldendoodle" data-group="utility" data-tags="medium large crossbreed low shedding">
-              <div class="breed-name-row">
-                <div class="breed-name">Goldendoodle</div>
-                <span class="breed-group">Utility (Crossbreed)</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 10–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=267&fit=crop&auto=format" alt="Goldendoodle" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Goldendoodle</div>
+                  <span class="breed-group">Utility (Crossbreed)</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 10–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="cavapoo.html" data-name="cavapoo" data-group="utility" data-tags="small crossbreed family friendly low shedding">
-              <div class="breed-name-row">
-                <div class="breed-name">Cavapoo</div>
-                <span class="breed-group">Utility (Crossbreed)</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small–Medium</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=267&fit=crop&auto=format" alt="Cavapoo" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Cavapoo</div>
+                  <span class="breed-group">Utility (Crossbreed)</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small–Medium</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="siberian-husky.html" data-name="husky siberian husky" data-group="working" data-tags="medium large working high exercise">
-              <div class="breed-name-row">
-                <div class="breed-name">Siberian Husky</div>
-                <span class="breed-group">Working</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=267&fit=crop&auto=format" alt="Siberian Husky" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Siberian Husky</div>
+                  <span class="breed-group">Working</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Medium–Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–15y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="pomeranian.html" data-name="pomeranian" data-group="toy" data-tags="small toy fluffy companion">
-              <div class="breed-name-row">
-                <div class="breed-name">Pomeranian</div>
-                <span class="breed-group">Toy</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Small</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400&h=267&fit=crop&auto=format" alt="Pomeranian" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Pomeranian</div>
+                  <span class="breed-group">Toy</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Small</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 12–16y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Low–Moderate</span>
+                </div>
               </div>
             </a>
             <a class="breed-card" href="dobermann.html" data-name="dobermann doberman" data-group="working" data-tags="large guarding intelligent athletic">
-              <div class="breed-name-row">
-                <div class="breed-name">Dobermann</div>
-                <span class="breed-group">Working</span>
-              </div>
-              <div class="breed-stats">
-                <span class="breed-stat"><span class="label">Size</span> Large</span>
-                <span class="breed-stat"><span class="label">Lifespan</span> 10–13y</span>
-                <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+              <img class="breed-card-img" src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&h=267&fit=crop&auto=format" alt="Dobermann" width="400" height="267" loading="lazy">
+              <div class="breed-card-body">
+                <div class="breed-name-row">
+                  <div class="breed-name">Dobermann</div>
+                  <span class="breed-group">Working</span>
+                </div>
+                <div class="breed-stats">
+                  <span class="breed-stat"><span class="label">Size</span> Large</span>
+                  <span class="breed-stat"><span class="label">Lifespan</span> 10–13y</span>
+                  <span class="breed-stat"><span class="label">Exercise</span> Very High</span>
+                </div>
               </div>
             </a>
           </div>
